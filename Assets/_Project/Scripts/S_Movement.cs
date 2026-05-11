@@ -13,7 +13,6 @@ public class S_Movement : MonoBehaviour
 
     [Header("Dependencies")]
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private PlayerInput _playerInput;
 
     #endregion
 
@@ -25,23 +24,8 @@ public class S_Movement : MonoBehaviour
 
     #region UnityLifecycle
 
-    private void OnEnable()
-    {
-    }
-   
-    private void OnDisable()
-    {
-
-    }
-
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
-        
         _rigidbody.AddForce(_direction * _speed * Time.fixedDeltaTime, ForceMode.Acceleration);
     }
 
