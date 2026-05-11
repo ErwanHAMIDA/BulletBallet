@@ -31,7 +31,7 @@ public class S_Movement : MonoBehaviour
 
     #endregion
 
-    #region PrivateMethods
+    #region Events
 
     private void OnMove(InputValue movementValue)
     {
