@@ -390,6 +390,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &670505033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 670505034}
+  m_Layer: 0
+  m_Name: ProjectileSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &670505034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670505033}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.31}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1397200112}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &729636411
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +828,7 @@ GameObject:
   - component: {fileID: 1397200112}
   - component: {fileID: 1397200115}
   - component: {fileID: 1397200118}
+  - component: {fileID: 1397200119}
   - component: {fileID: 1397200114}
   - component: {fileID: 1397200113}
   - component: {fileID: 1397200116}
@@ -822,6 +854,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 784573662}
+  - {fileID: 670505034}
   m_Father: {fileID: 325816255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1397200113
@@ -1025,7 +1058,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::S_Movement
   _speed: 1000
   _rigidbody: {fileID: 1397200117}
-  _playerInput: {fileID: 1397200116}
+--- !u!114 &1397200119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397200111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ef720ad7d2fa44ba6dd39203e195bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_Shoot
+  _projectilePrefab: {fileID: 4421501619921686786, guid: 1f1cdf084d11d534c8dca44e8b90f12a, type: 3}
+  _spawnPoint: {fileID: 670505034}
 --- !u!1 &2134304423
 GameObject:
   m_ObjectHideFlags: 0
