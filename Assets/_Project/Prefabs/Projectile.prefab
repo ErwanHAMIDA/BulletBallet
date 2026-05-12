@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f30ce2fc43cf4cb47a4d89575740301e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_ObjectLifecycle
-  _lifeTime: 4
+  _lifeTime: 2
 --- !u!114 &8623688066687784887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e6dc9daf63c14d40931d2b3b30e344b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_ProjectileMovement
-  _speed: 2000
+  _speed: 20
   _rigidbody: {fileID: 2467567586105943587}
 --- !u!33 &6078242721892461829
 MeshFilter:
