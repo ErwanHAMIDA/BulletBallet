@@ -11,11 +11,36 @@ public class S_Shoot : MonoBehaviour
 
     #endregion
 
+    #region PrivateFields
+
+    private Quaternion _currentPlayerRotation;
+
+    #endregion
+
     #region Events
+
+    private void OnEnable()
+    {
+        S_PlayerRotation.OnRotating += ReceivePlayerNewRotation;
+    }
+
+    private void OnDisable()
+    {
+        S_PlayerRotation.OnRotating -= ReceivePlayerNewRotation;
+    }
 
     private void OnFire()
     {
-        Instantiate(_projectilePrefab, _spawnPoint.position, Quaternion.identity);
+        Instantiate(_projectilePrefab, _spawnPoint.position, _currentPlayerRotation);
+    }
+
+    #endregion
+
+    #region PrivateMethods
+
+    private void ReceivePlayerNewRotation(Quaternion newRotation)
+    {
+        _currentPlayerRotation = newRotation;
     }
 
     #endregion
