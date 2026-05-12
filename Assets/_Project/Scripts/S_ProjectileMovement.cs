@@ -6,8 +6,8 @@ public class S_ProjectileMovement : MonoBehaviour
     #region SerializeFields
 
     [Header("Stats")]
-    [Range(1000.0f, 10000.0f)]
-    [SerializeField] private float _speed = 2000.0f;
+    [Range(1.0f, 100.0f)]
+    [SerializeField] private float _speed = 10.0f;
 
     [Header("Dependencies")]
     [SerializeField] private Rigidbody _rigidbody;
@@ -16,9 +16,18 @@ public class S_ProjectileMovement : MonoBehaviour
 
     #region UnityLifecycle
 
-    void FixedUpdate()
+    private void Update()
     {
-        _rigidbody.AddForce(Vector3.forward * _speed * Time.fixedDeltaTime, ForceMode.Acceleration);
+        MoveProjectile();
+    }
+
+    #endregion
+
+    #region PrivateMethods
+
+    private void MoveProjectile()
+    {
+        transform.Translate(Vector3.forward * _speed * Time.deltaTime);
     }
 
     #endregion
