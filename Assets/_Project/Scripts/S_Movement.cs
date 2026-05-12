@@ -1,19 +1,15 @@
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody), typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerInput))]
 public class S_Movement : MonoBehaviour
 {
     #region SerializeFields
 
     [Header("Movement")]
-    [Range(1000.0f, 10000.0f)]
-    [SerializeField] private float _speed = 2000.0f;
-
-    [Header("Dependencies")]
-    [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private PlayerInput _playerInput;
+    [Range(1.0f, 100.0f)]
+    [SerializeField] private float _speed = 10.0f;
 
     #endregion
 
@@ -25,35 +21,29 @@ public class S_Movement : MonoBehaviour
 
     #region UnityLifecycle
 
-    private void OnEnable()
+    private void Update()
     {
-    }
-   
-    private void OnDisable()
-    {
-
-    }
-
-    void Update()
-    {
-        
-    }
-
-    private void FixedUpdate()
-    {
-        
-        _rigidbody.AddForce(_direction * _speed * Time.fixedDeltaTime, ForceMode.Acceleration);
+        Move();
     }
 
     #endregion
 
-    #region PrivateMethods
+    #region Events
 
     private void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
         _direction.x = movementVector.x;
         _direction.z = movementVector.y;
+    }
+
+    #endregion
+
+    #region PrivateMethods
+
+    private void Move()
+    {
+        transform.Translate(_direction * _speed * Time.deltaTime, Space.World);
     }
 
     #endregion
